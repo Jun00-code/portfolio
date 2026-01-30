@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moodboard - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="moodboard-page">
+  <header class="header">
+    <a href="index.html" class="logo-text">Home</a>
+    <nav class="nav">
+      <a href="profile.html" class="nav-item">Profile</a>
+      <a href="work.html" class="nav-item">Work</a>
+      <a href="moodboard.html" class="nav-item">Moodboard</a>
+    </nav>
+  </header>
+  <div class="header-divider"></div>
+
+  <main class="main">
+    <!-- ===== Moodboard 섹션 ===== -->
+    <section class="block moodboard">
+      <h2> <strong>Refreshing</strong> </h2>
+      <div class="moodboard-grid">
+        <img src="assets/moodboard/moodboard.jpg" alt="Mood 1" class="lightbox-img">
+      </div>
+    </section>
+
+    <section class="block moodboard">
+      <h2> <strong>Boldness</strong> </h2>
+      <div class="moodboard-grid">
+        <img src="assets/moodboard/moodboard2.jpg" alt="Mood 2" class="lightbox-img">
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox-overlay">
+      <span id="lightbox-close">&times;</span>
+      <img id="lightbox-content" src="">
+    </div>
+  </main>
+
+  <script>
+  const lightboxImages = document.querySelectorAll('.lightbox-img');
+  const overlay = document.getElementById('lightbox-overlay');
+  const overlayImg = document.getElementById('lightbox-content');
+  const closeBtn = document.getElementById('lightbox-close');
+
+  lightboxImages.forEach(img => {
+    img.addEventListener('click', () => {
+      overlay.style.display = 'flex';
+      overlayImg.src = img.src;
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    overlay.style.display = 'none';
+  });
+
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) {
+      overlay.style.display = 'none';
+    }
+  });
+  </script>
+</body>
+</html>
